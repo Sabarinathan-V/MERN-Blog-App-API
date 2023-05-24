@@ -9,11 +9,11 @@ The MERN Blog App API is built using Express.js and provides backend functionali
 ## Installation
 
 1. Clone the repository:
-- git clone https://github.com/YourUsername/MERN-Blog-App-API.git
+    git clone https://github.com/YourUsername/MERN-Blog-App-API.git
 
 2. Install the dependencies:
-- cd MERN-Blog-App-API 
-- npm install
+    cd MERN-Blog-App-API 
+    npm install
 
 3. Set up environment variables:
 
@@ -26,7 +26,7 @@ The MERN Blog App API is built using Express.js and provides backend functionali
   ```
 
 4. Start the server:
-- npm start
+    npm start
 
 The API server will start running on http://localhost:5000.
 
@@ -54,4 +54,4 @@ The API server will start running on http://localhost:5000.
 
 ## Deployment
 
-    You can access my Blog API in the following link [MyBlog](https://myblog-app-api.onrender.com) 
+    You can access my Blog API in the following link [MyBlog](https://myblog-app-api.onrender.com/) 
