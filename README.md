@@ -53,3 +53,5 @@ The API server will start running on http://localhost:5000.
 - cors (Cross-Origin Resource Sharing)
 
 ## Deployment
+
+    You can access my Blog API in the following link [MyBlog](https://myblog-app-api.onrender.com) 
