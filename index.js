@@ -19,6 +19,7 @@ const uploadMiddleware = multer({ dest: "uploads/" });
 const fs = require("fs");
 const cors = require("cors");
 const path = require("path");
+require("dotenv").config();
 
 app.use(express.json());
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
@@ -29,9 +30,7 @@ const salt = bcrypt.genSaltSync(10);
 const secret = "secretkey";
 
 // mongodb connection
-mongoose.connect(
-  "mongodb+srv://sabari:sabari@cluster0.1wzbqgs.mongodb.net/?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.MONGODB_URI);
 
 // static file directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
@@ -163,6 +162,6 @@ app.get("/post/:id", async (req, res) => {
 });
 
 // connecting express app on a port
-app.listen(5000, (req, res) => {
-  console.log("express running on port 5000");
+app.listen(process.env.PORT, (req, res) => {
+  console.log(`express running on port ${process.env.PORT}`);
 });
