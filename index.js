@@ -64,10 +64,14 @@ app.post("/login", async (req, res) => {
     // logged in
     jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
       if (err) throw err;
-      res.cookie("token", token).json({
+      res.cookie("token", token, {
+        sameSite: "none",
+        secure: true,
+      }).json({
         id: userDoc._id,
         username,
       });
+      
     });
   } else {
     res.status(400).json("wrong credentials");
@@ -81,12 +85,13 @@ app.get("/profile", (req, res) => {
     // Token is missing
     return res.status(401).json({ error: "Token not provided" });
   }
-  jwt.verify(token, secret, {}, (err, info) => {
+  jwt.verify(token, secret, { ignoreExpiration: true }, (err, info) => {
     if (err) {
       return res.status(401).json({ error: "Invalid token" });
-    };
+    }
     res.json(info);
   });
+  
 });
 
 // Route for user logout
