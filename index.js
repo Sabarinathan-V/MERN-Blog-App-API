@@ -22,12 +22,7 @@ app.use(cookieParser());
 
 // File uploads
 const multer = require("multer");
-const uploadMiddleware = multer({
-  dest: "uploads/",
-  limits: {
-    fieldSize: 10 * 1024 * 1024, // Increase the field size limit to 10MB (adjust as needed)
-  },
-});
+const uploadMiddleware = multer({ dest: "uploads/" });
 
 const fs = require("fs");
 const path = require("path");
