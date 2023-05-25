@@ -75,14 +75,14 @@ app.post("/login", async (req, res) => {
 });
 
 // Route for user verification
-app.get("/profile", async (req, res) => {
+app.get("/profile", (req, res) => {
   const { token } = req.cookies;
 
   if (!token) {
     return res.status(401).json({ error: "JWT token not provided" });
   }
-
-  await jwt.verify(token, secret, {}, (err, info) => {
+  
+  jwt.verify(token, secret, {}, (err, info) => {
     if (err) throw err;
     res.json(info);
   });
