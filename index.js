@@ -1,6 +1,10 @@
 // Express app
 const express = require("express");
 const app = express();
+const cors = require("cors");
+app.use(cors({ credentials: true, origin: "https://myblog-mern-fullstack-sabarinathan-v.netlify.app/"}));
+app.use(express.json());
+app.use(cookieParser());
 
 // Database connection
 const mongoose = require("mongoose");
@@ -17,13 +21,8 @@ const multer = require("multer");
 const uploadMiddleware = multer({ dest: "uploads/" });
 
 const fs = require("fs");
-const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
-
-app.use(express.json());
-app.use(cors({ credentials: true}));
-app.use(cookieParser());
 
 // salt and secret key
 const salt = bcrypt.genSaltSync(10);
