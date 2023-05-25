@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-app.use(cors({ credentials: true, origin: "https://myblog-mern-fullstack-sabarinathan-v.netlify.app/"}));
+app.use(cors({ credentials: true }));
 app.use(express.json());
 
 
