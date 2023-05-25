@@ -9,7 +9,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-
 // Database connection
 const mongoose = require("mongoose");
 const User = require("./models/User");
@@ -23,7 +22,12 @@ app.use(cookieParser());
 
 // File uploads
 const multer = require("multer");
-const uploadMiddleware = multer({ dest: "uploads/" });
+const uploadMiddleware = multer({
+  dest: "uploads/",
+  limits: {
+    fieldSize: 10 * 1024 * 1024, // Increase the field size limit to 10MB (adjust as needed)
+  },
+});
 
 const fs = require("fs");
 const path = require("path");
@@ -64,14 +68,15 @@ app.post("/login", async (req, res) => {
     // logged in
     jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
       if (err) throw err;
-      res.cookie("token", token, {
-        sameSite: "none",
-        secure: true,
-      }).json({
-        id: userDoc._id,
-        username,
-      });
-      
+      res
+        .cookie("token", token, {
+          sameSite: "none",
+          secure: true,
+        })
+        .json({
+          id: userDoc._id,
+          username,
+        });
     });
   } else {
     res.status(400).json("wrong credentials");
@@ -91,7 +96,6 @@ app.get("/profile", (req, res) => {
     }
     res.json(info);
   });
-  
 });
 
 // Route for user logout
