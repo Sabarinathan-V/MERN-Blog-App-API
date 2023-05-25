@@ -8,25 +8,24 @@ The MERN Blog App API is built using Express.js and provides backend functionali
 
 ## Installation
 
-1. Clone the repository:
-- git clone https://github.com/YourUsername/MERN-Blog-App-API.git
+### Clone the repository
+git clone https://github.com/YourUsername/MERN-Blog-App-API.git
 
-2. Install the dependencies:
-- cd MERN-Blog-App-API 
-- npm install
+### Install the dependencies
+cd MERN-Blog-App-API 
+npm install
 
-3. Set up environment variables:
-
-- Create a `.env` file in the root directory of the API.
-- Add the following variables to the `.env` file:
+### Set up environment variables
+Create a `.env` file in the root directory of the API.
+Add the following variables to the `.env` file:
 
   ```
   MONGODB_URI=your_mongodb_connection_string
   PORT=5000
   ```
 
-4. Start the server:
-- npm start
+### Start the server
+npm start
 
 The API server will start running on http://localhost:5000.
 
@@ -53,3 +52,4 @@ The API server will start running on http://localhost:5000.
 - cors (Cross-Origin Resource Sharing)
 
 ## Deployment
+You can access my Blog API in the following link [MyBlog](https://myblog-app-api.onrender.com/) 
