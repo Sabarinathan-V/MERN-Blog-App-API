@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 app.use(cors({ credentials: true, origin: "https://myblog-mern-fullstack-sabarinathan-v.netlify.app/"}));
 app.use(express.json());
-app.use(cookieParser());
+
 
 // Database connection
 const mongoose = require("mongoose");
@@ -15,6 +15,7 @@ const Post = require("./models/Post");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 
 // File uploads
 const multer = require("multer");
